@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="bg-light p-4 my-3">
+    <h5 class="mb-3">SEARCH</h5>
+    <div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Source</span>
+            </div>
+            <input type="text" id="sourceUri" class="form-control" placeholder="Enter link"
+                   value="https://www.foerderdatenbank.de/FDB/DE/Service/RSS/Functions/foerderprogram_rssnewsfeed.xml"/>
+        </div>
+        <div class="form-group">
+            <input type="text" id="tags-input" class="form-control" placeholder="Keywords ..."
+                   data-role="tagsinput"
+                   value="Energie,Produktion,Fabrik,Fabrikplanung,Resilienz"/>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+</div>
+<div class="bg-light p-4 mb-3">
+    <h5 class="mb-3">RESULT</h5>
+    <div>
+        Result goes here
+    </div>
+</div>
+{% endblock %}
