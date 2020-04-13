@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="static/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="static/styles.css">
 
+    <script src="https://kit.fontawesome.com/c8bfa83958.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -18,7 +19,7 @@
 <body>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">CALL SEARCH</a>
+    <a class="navbar-brand" href="/"><i class="fas fa-file"></i> CALL SEARCH</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,8 +39,12 @@
     {% block content %}{% endblock %}
 </div>
 
-<div class="jumbotron text-center footer">
-    <p>© 2020 IWU</p>
+<div class="footer">
+    <div class="container">
+        <hr/>
+        <p><small>© 2020 IWU</small></p>
+    </div>
 </div>
+{% block scripts %}{% endblock %}
 </body>
 </html>

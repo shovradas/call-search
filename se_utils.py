@@ -13,13 +13,13 @@ def doc_freq(term, docs):
 
 
 def inverse_doc_freq(term, docs):
-    idf = len(docs)/float(doc_freq(term, docs))
+    idf = len(docs)/float(1 + doc_freq(term, docs))  # Adding 1 to avoid division-by-zero
     return math.log(idf, 2)
 
 
 def tf_idf(term, docs):
-    score = []
+    scores = []
     idf = inverse_doc_freq(term, docs)
     for doc in docs:
-        score.append(term_freq(term, doc) * idf)
-    return score
+        scores.append(term_freq(term, doc) * idf)
+    return scores

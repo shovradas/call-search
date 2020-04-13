@@ -1,4 +1,3 @@
-
 /* bootstrap-tagsinput */
 .bootstrap-tagsinput {
     width: 100% !important;
@@ -7,26 +6,32 @@
     background: #009374;
     border-color: #009374;
 }
+
 .bootstrap-tagsinput .tag {
     background-color: #6DBFA9;
     padding: 0 5px 4px 5px;
 }
 
 .bootstrap-tagsinput input {
-  color: white;
+    color: white;
 }
 
 .bootstrap-tagsinput ::placeholder {
-  color: white;
-  opacity: 0.6;
+    color: white;
+    opacity: 0.6;
 }
 /* bootstrap-tagsinput */
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 0;
-    border-radius: 0;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+
+.bg-iwu{
+    background: #009374;
+}
+
+.bg-iwu-light{
+    background: #89e7ce;
 }

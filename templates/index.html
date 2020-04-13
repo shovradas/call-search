@@ -1,27 +1,69 @@
 {% extends 'layout.html' %}
 {% block content %}
+
 <div class="bg-light p-4 my-3">
     <h5 class="mb-3">SEARCH</h5>
-    <div>
+    <form method="POST">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Source</span>
             </div>
-            <input type="text" id="sourceUri" class="form-control" placeholder="Enter link"
-                   value="https://www.foerderdatenbank.de/FDB/DE/Service/RSS/Functions/foerderprogram_rssnewsfeed.xml"/>
+            <input type="text" id="sourceUri" name="sourceUri" class="form-control" placeholder="Enter link"
+                   value="{{view_data.source_uri}}"/>
         </div>
         <div class="form-group">
-            <input type="text" id="tags-input" class="form-control" placeholder="Keywords ..."
+            <input type="text" id="tags-input" name="keywords" class="form-control" placeholder="Keywords ..."
                    data-role="tagsinput"
-                   value="Energie,Produktion,Fabrik,Fabrikplanung,Resilienz"/>
+                   value="{{view_data.keywords}}"/>
         </div>
         <button type="submit" class="btn btn-dark">Submit</button>
-    </div>
+    </form>
 </div>
-<div class="bg-light p-4 mb-3">
-    <h5 class="mb-3">RESULT</h5>
+
+{% if view_data.docs != null: %}
+<div class="mt-4">
+    <h5 class="mb-3">RESULTS</h5>
     <div>
-        Result goes here
+        {% if view_data.docs|length == 0: %}
+            No relevant record found!
+        {% endif%}
+        {% for doc in view_data.docs: %}
+        <div class="bg-iwu pl-1 mb-4 border">
+            <div class="bg-light p-3">
+                <small><i>Posted on {{doc.published}}</i></small>
+                <h4>{{doc.title}}</h4>
+                <div>
+                    {{doc.summary or 'No summary available'}}
+                    <br/>
+                    <br/>
+                </div>
+                <div class="text-right">
+                    <small>
+                        <a href="{{doc.link}}" target="_blank">
+                            Original Post <i class="fas fa-external-link-alt"></i></a>
+                    </small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
+{% endif%}
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#tags-input').tagsinput({
+            confirmKeys: [13, 44]
+        });
+        $('body').on('keypress', '.bootstrap-tagsinput input', function (e) {
+            if (e.keyCode == 13) {
+                e.keyCode = 44;
+                e.preventDefault();
+            }
+        });
+    });
+</script>
 {% endblock %}
