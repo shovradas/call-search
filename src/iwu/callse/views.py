@@ -1,11 +1,9 @@
-import feedparser
-import requests
-from flask import Response, request, render_template
-import se_utils
-import os
-from html.parser import HTMLParser
+import feedparser, requests
 from bs4 import BeautifulSoup
+from flask import request, render_template
+from html.parser import HTMLParser
 
+from iwu.callse import se_utils
 
 class HTMLFilter(HTMLParser):
     text = ""
