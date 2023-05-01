@@ -14,7 +14,7 @@ setup(
         where='src'
     ),
     install_requires=[
-        'Flask==2.2.2',
+        'Flask==2.3.2',
         'feedparser==6.0.10',
         'requests==2.28.2',
         'beautifulsoup4==4.11.2'
